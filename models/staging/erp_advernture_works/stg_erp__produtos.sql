@@ -23,6 +23,7 @@ with
             --,weight
             --,daystomanufacture
             --,productline
+            , cast (productsubcategoryid as int) as id_subcategoria
 
         from {{ source('erp adventure works', 'production_product') }}
     )

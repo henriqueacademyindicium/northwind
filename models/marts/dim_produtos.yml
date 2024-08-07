@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_produtos
+    description: Dimensao de produtos da Aventure Works. Uma linha por produto com informacao de categorias e subcategorias
+    columns: 
+      - name: id_produto
+        description: Chave primaria da dimensão produtos
+        tests:
+          - not_null
+          - unique       
+
+      - name: nome_produto
+        description: Nome dos produtos
+
+      - name: eh_manufaturado
+        description: Define se o produto eh manufaturado ou nao
+
+      - name: eh_produto_final
+        description: Define se o produto eh um produto final ou nao
+
+      - name: id_subcategoria
+        description: Chave estrangeira da tabela de subcategorias
+
+      - name: id_categoria
+        description: Chave estrangeira da tabela de categorias
+
+      - name: nome_subcategoria
+        description: Nome da subcategoria
+
+      - name: nome_categoria
+        description: Nome da categoria
