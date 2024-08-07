@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: erp adventure works
+    description: Fonte AW
+    schema: AW_ERP_RAW
+
+    tables:
+      - name: production_product
+        columns: 
+            - name: productid
+              tests: 
+                - unique
+                - not_null
+          
+      - name: production_productcategory
+        columns: 
+            - name: productcategoryid
+              tests: 
+                - unique
+                - not_null
+      - name: production_productsubcategory
+        columns: 
+            - name: productsubcategoryid
+              tests: 
+                - unique
+                - not_null
