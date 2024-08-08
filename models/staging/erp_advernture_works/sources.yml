@@ -25,3 +25,32 @@ sources:
               tests: 
                 - unique
                 - not_null
+
+      - name: person_countryregion
+        columns: 
+            - name: countryregioncode
+              tests: 
+                - unique
+                - not_null
+
+      - name: person_stateprovince
+        columns: 
+            - name: stateprovinceid
+              tests: 
+                - unique
+                - not_null
+      - name: person_address
+        columns: 
+            - name: addressid
+              tests: 
+                - unique
+                - not_null
+      - name: sales_salesorderheader
+        description: Uma linha por pedido
+        columns:
+          - name: salesorderid
+            tests:
+              - unique
+              - not_null
+
+
