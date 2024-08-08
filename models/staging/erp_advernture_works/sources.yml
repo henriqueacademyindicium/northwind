@@ -25,6 +25,7 @@ sources:
               tests: 
                 - unique
                 - not_null
+<<<<<<< HEAD
 
       - name: person_countryregion
         columns: 
@@ -45,6 +46,8 @@ sources:
               tests: 
                 - unique
                 - not_null
+=======
+>>>>>>> d2c549dc997b03c7cac6c39bdf2990f7020e4aee
       - name: sales_salesorderheader
         description: Uma linha por pedido
         columns:
@@ -52,5 +55,42 @@ sources:
             tests:
               - unique
               - not_null
+<<<<<<< HEAD
 
 
+=======
+              
+      - name: sales_salesorderheadersalesreason
+        description:  id motivo de venda x id pedido
+        columns:
+          - name: salesorderid
+            tests:
+              - unique
+              - not_null
+      - name: sales_salesreason
+        description: motivo de venda
+        columns:
+          - name: salesreasonid
+            tests:
+              - unique
+              - not_null
+
+      - name: sales_creditcard
+        description: tipo de cartao de credito
+        columns:
+          - name: creditcardid
+            tests:
+              - unique
+              - not_null
+      - name: sales_salesorderdetail
+      - name: sales_specialoffer
+        description: tipo de oferta
+        columns:
+          - name: specialofferid
+            tests:
+              - unique
+              - not_null
+
+      
+      
+>>>>>>> d2c549dc997b03c7cac6c39bdf2990f7020e4aee
