@@ -25,6 +25,29 @@ sources:
               tests: 
                 - unique
                 - not_null
+<<<<<<< HEAD
+
+      - name: person_countryregion
+        columns: 
+            - name: countryregioncode
+              tests: 
+                - unique
+                - not_null
+
+      - name: person_stateprovince
+        columns: 
+            - name: stateprovinceid
+              tests: 
+                - unique
+                - not_null
+      - name: person_address
+        columns: 
+            - name: addressid
+              tests: 
+                - unique
+                - not_null
+=======
+>>>>>>> d2c549dc997b03c7cac6c39bdf2990f7020e4aee
       - name: sales_salesorderheader
         description: Uma linha por pedido
         columns:
@@ -32,6 +55,10 @@ sources:
             tests:
               - unique
               - not_null
+<<<<<<< HEAD
+
+
+=======
               
       - name: sales_salesorderheadersalesreason
         description:  id motivo de venda x id pedido
@@ -66,3 +93,4 @@ sources:
 
       
       
+>>>>>>> d2c549dc997b03c7cac6c39bdf2990f7020e4aee
