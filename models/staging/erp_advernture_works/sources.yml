@@ -25,3 +25,44 @@ sources:
               tests: 
                 - unique
                 - not_null
+      - name: sales_salesorderheader
+        description: Uma linha por pedido
+        columns:
+          - name: salesorderid
+            tests:
+              - unique
+              - not_null
+              
+      - name: sales_salesorderheadersalesreason
+        description:  id motivo de venda x id pedido
+        columns:
+          - name: salesorderid
+            tests:
+              - unique
+              - not_null
+      - name: sales_salesreason
+        description: motivo de venda
+        columns:
+          - name: salesreasonid
+            tests:
+              - unique
+              - not_null
+
+      - name: sales_creditcard
+        description: tipo de cartao de credito
+        columns:
+          - name: creditcardid
+            tests:
+              - unique
+              - not_null
+      - name: sales_salesorderdetail
+      - name: sales_specialoffer
+        description: tipo de oferta
+        columns:
+          - name: specialofferid
+            tests:
+              - unique
+              - not_null
+
+      
+      
