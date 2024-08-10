@@ -9,15 +9,15 @@ with
         from {{ ref('stg_erp__detalhe_pedidos') }}
     )
 
-    ,stg_motivo_venda as (
-        select *
-        from {{ ref('stg_erp__motivo_venda') }}
-    )
-
-    ,stg_motivo_venda_por_pedido as (
-        select *
-        from {{ ref('stg_erp__motivo_venda_por_pedido') }}
-    )
+    --,stg_motivo_venda as (
+    --    select *
+    --    from {{ ref('stg_erp__motivo_venda') }}
+    --)
+--
+    --,stg_motivo_venda_por_pedido as (
+    --    select *
+    --    from {{ ref('stg_erp__motivo_venda_por_pedido') }}
+    --)
 
     ,stg_ofertas_especiais as (
         select *
@@ -47,16 +47,16 @@ with
             stg_detalhe_pedidos.id_oferta_especial = stg_ofertas_especiais.id_oferta_especial
     )
 
-    ,joined2_motivo_venda_motivo_venda_por_pedidos as (
-        select 
-        id_pedido
-        ,nome_motivo_venda
-        ,tipo_motivo_venda
-      
-        from stg_motivo_venda_por_pedido
-        left join stg_motivo_venda on
-            stg_motivo_venda_por_pedido.id_motivo_venda = stg_motivo_venda.id_motivo_venda
-        )
+    --,joined2_motivo_venda_motivo_venda_por_pedidos as (
+    --    select 
+    --    id_pedido
+    --    ,nome_motivo_venda
+    --    ,tipo_motivo_venda
+    --  
+    --    from stg_motivo_venda_por_pedido
+    --    left join stg_motivo_venda on
+    --        stg_motivo_venda_por_pedido.id_motivo_venda = stg_motivo_venda.id_motivo_venda
+    --    )
 
     ,joined3_pedidos_joined1_joined2_cartao_de_credito as (
         select 
@@ -82,8 +82,8 @@ with
         ,joined1_detalhe_pedidos_ofertas_speciais.porcentagem_desconto
         ,joined1_detalhe_pedidos_ofertas_speciais.tipo_oferta_especial
         ,joined1_detalhe_pedidos_ofertas_speciais.categoria_oferta_especial
-        ,joined2_motivo_venda_motivo_venda_por_pedidos.nome_motivo_venda
-        ,joined2_motivo_venda_motivo_venda_por_pedidos.tipo_motivo_venda
+        --,joined2_motivo_venda_motivo_venda_por_pedidos.nome_motivo_venda
+        --,joined2_motivo_venda_motivo_venda_por_pedidos.tipo_motivo_venda
         ,stg_cartao_de_credito.tipo_cartao_de_credito
 
 
@@ -91,8 +91,8 @@ with
         from stg_pedidos
         left join joined1_detalhe_pedidos_ofertas_speciais on
             stg_pedidos.id_pedido = joined1_detalhe_pedidos_ofertas_speciais.id_pedido
-        left join joined2_motivo_venda_motivo_venda_por_pedidos on
-            stg_pedidos.id_pedido = joined2_motivo_venda_motivo_venda_por_pedidos.id_pedido
+        --left join joined2_motivo_venda_motivo_venda_por_pedidos on
+        --    stg_pedidos.id_pedido = joined2_motivo_venda_motivo_venda_por_pedidos.id_pedido
         left join stg_cartao_de_credito on
             stg_pedidos.id_cartao_de_credito = stg_cartao_de_credito.id_cartao_de_credito
         )
@@ -157,8 +157,8 @@ with
         ,categoria_oferta_especial
 
         /*motivo venda*/
-        ,nome_motivo_venda
-        ,tipo_motivo_venda
+        --,nome_motivo_venda
+        --,tipo_motivo_venda
         
         /*cartao de credito*/
         ,tipo_cartao_de_credito
