@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_motivo_vendas
+    description: Tabela dos motivos das vendas da Aventure Works. Pode ter mais de um motivo de venda para um pedido
+    columns: 
+      - name: id_pedido
+        description: Chave primaria da tabela pedidos
+        tests:
+          - not_null
+  

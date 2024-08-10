@@ -59,7 +59,6 @@ sources:
         columns:
           - name: salesorderid
             tests:
-              - unique
               - not_null
       - name: sales_salesreason
         description: motivo de venda
