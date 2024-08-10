@@ -8,8 +8,7 @@ with
             ,cast(specialofferid as integer) as id_oferta_especial
             ,cast(unitprice as numeric) as preco_unitario
             ,cast(unitpricediscount as numeric) as desconto_unitario
-
-            --,salesorderdetailid
+            ,cast(salesorderdetailid as integer) as id_detalhe__pedido
             --,carriertrackingnumber
             --,rowguid
             --,modifieddate

@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: fato_pedidos
+    description: Tabela de pedidos da Aventure Works. Uma linha por detalhe de pedido 
+    columns: 
+      - name: id_detalhe_pedido
+        description: Chave primaria da tabela pedidos
+        tests:
+          - not_null
+          - unique       
+
+      - name: frete_ponderado
+        description: Métrica criaada dividindo o frete pelo numero de produtos distintos naquela nota fiscal
+
+      - name: taxas_ponderadas
+        description: Métrica criaada dividindo a taxa pelo numero de produtos distintos naquela nota fiscal
+
+      - name: total_bruto
+        description: Métrica da (quantidade de produtos) x (preço unitario). Sem descontos, taxas ou frete

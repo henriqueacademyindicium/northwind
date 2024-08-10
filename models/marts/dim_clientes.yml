@@ -1,0 +1,33 @@
+version: 2
+
+
+models:
+  - name: dim_clientes
+    description: Dimensao de cientes da Aventure Works. Uma linha por clienteo com informacao de endereço
+    columns: 
+      - name: id_cliente
+        description: Chave primaria da dimensão clientes
+        tests:
+          - not_null
+          - unique       
+
+      - name: id_businessentity_pessoa
+        description: Chave primaria da dimensão pessoa (busineesentityid)
+
+      - name: tipo_pessoa
+        description: Define o tipo da pessoa
+
+      - name: nome_completo
+        description: Nome completo do cliente
+
+      - name: nome_cidade
+        description: Cidade da pessoa
+
+      - name: nome_estado_provincia
+        description: Estado ou provincia da pessoa
+
+      - name: nome_regiao_pais
+        description: Regiao ou pais da pessoa
+
+      - name: eh_apenas_pais
+        description: Define se o endereço em questao tem info apenas de pais ou se tambem de estado/provicnia
