@@ -62,19 +62,20 @@ with
         select 
 
         stg_pedidos.id_pedido
+        ,stg_pedidos.id_cliente
+        ,joined1_detalhe_pedidos_ofertas_speciais.id_produto
         ,stg_pedidos.data_pedido
         ,stg_pedidos.data_entrega
-        ,stg_pedidos.id_status
+        --,stg_pedidos.id_status
         ,stg_pedidos.eh_compra_online
-        ,stg_pedidos.id_cliente
-        ,stg_pedidos.id_cartao_de_credito
+        --,stg_pedidos.id_cartao_de_credito
         ,stg_pedidos.subtotal
         ,stg_pedidos.taxas
         ,stg_pedidos.frete
         ,stg_pedidos.total
         ,joined1_detalhe_pedidos_ofertas_speciais.id_detalhe_pedido
         ,joined1_detalhe_pedidos_ofertas_speciais.qtdade_pedido
-        ,joined1_detalhe_pedidos_ofertas_speciais.id_produto
+
         ,joined1_detalhe_pedidos_ofertas_speciais.preco_unitario
         ,joined1_detalhe_pedidos_ofertas_speciais.desconto_unitario
         ,joined1_detalhe_pedidos_ofertas_speciais.nome_oferta_especial
@@ -96,7 +97,78 @@ with
             stg_pedidos.id_cartao_de_credito = stg_cartao_de_credito.id_cartao_de_credito
         )
 
-     select * 
- from joined3_pedidos_joined1_joined2_cartao_de_credito
+    , tranformacoes as (
+        select 
+        *
+
+        , qtdade_pedido * preco_unitario as total_bruto
+        , qtdade_pedido * preco_unitario * (desconto_unitario) as desconto_monetario
+        , case
+            when desconto_unitario > 0 then 'sim'
+            else 'nao'
+        end as teve_desconto
+        , frete / count(id_pedido) over(partition by id_pedido) as frete_ponderado
+        , taxas / count(id_pedido) over(partition by id_pedido) as taxas_ponderadas
+
+
+
+        from joined3_pedidos_joined1_joined2_cartao_de_credito
+
+    )
+
+
+    ,select_final as (
+        select
+        
+        /*chaves*/
+        id_detalhe_pedido
+        ,id_pedido
+        ,id_cliente
+        ,id_produto
+        
+        /*datas*/
+        ,data_pedido
+        ,data_entrega
+        
+        /*compra online*/
+        ,eh_compra_online
+
+        --,subtotal
+        --taxas
+        --frete
+        --total
+
+        /*metricas*/
+        ,qtdade_pedido
+        ,preco_unitario
+        ,total_bruto
+        ,teve_desconto
+        ,desconto_monetario
+        ,frete_ponderado
+        ,taxas_ponderadas
+
+
+        --desconto_unitario
+
+        /*oferta*/
+        ,nome_oferta_especial
+        ,porcentagem_desconto
+        ,tipo_oferta_especial
+        ,categoria_oferta_especial
+
+        /*motivo venda*/
+        ,nome_motivo_venda
+        ,tipo_motivo_venda
+        
+        /*cartao de credito*/
+        ,tipo_cartao_de_credito
+    
+        from tranformacoes
+    )
+
+select * 
+ from select_final
+
+
 
   

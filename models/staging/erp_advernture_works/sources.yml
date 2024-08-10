@@ -78,6 +78,12 @@ sources:
               - not_null
       
       - name: sales_salesorderdetail
+        description: detalhe do pedido
+        columns:
+          - name: salesorderdetailid
+            tests:
+              - unique
+              - not_null
      
       - name: sales_specialoffer
         description: tipo de oferta
