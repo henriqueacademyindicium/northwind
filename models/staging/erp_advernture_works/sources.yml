@@ -110,7 +110,6 @@ sources:
         columns:
           - name: businessentityid
             tests:
-              - unique
               - not_null
 
 

@@ -79,10 +79,10 @@ with
         ,id_businessentity as id_businessentity_pessoa
         ,tipo_pessoa
         ,nome_completo
-        ,nome_cidade
-        ,nome_estado_provincia
-        ,nome_regiao_pais
-        ,eh_apenas_pais
+        --,nome_cidade
+        --,nome_estado_provincia
+        --,nome_regiao_pais
+        --,eh_apenas_pais
 
 
         from joined_tabelas2_pessoa_endereco

@@ -1,0 +1,28 @@
+version: 2
+
+
+models:
+  - name: dim_enderco
+    description: Dimensao de endercos da Aventure Works. Uma linha por id adress com informacao de cidade, estado e pais
+    columns: 
+      - name: id_endereco
+        description: Chave primaria da dimensão endereco
+        tests:
+          - not_null
+          - unique       
+
+      - name: nome_cidade
+        description: nome da cidade
+
+      - name: eh_apenas_pais
+        description: Define se o endereço em questao tem info apenas de pais ou se tambem de estado/provicnia
+
+      - name: nome_estado_provincia
+        description: Nome completo do cliente
+
+      - name: nome_estado_provincia
+        description: Estado ou provincia da pessoa
+
+      - name: nome_regiao_pais
+        description: Regiao ou pais da pessoa
+

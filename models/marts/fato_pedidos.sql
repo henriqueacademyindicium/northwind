@@ -63,6 +63,8 @@ with
 
         stg_pedidos.id_pedido
         ,stg_pedidos.id_cliente
+        ,stg_pedidos.id_endereco_pagamento
+        ,stg_pedidos.id_endereco_entrega
         ,joined1_detalhe_pedidos_ofertas_speciais.id_produto
         ,stg_pedidos.data_pedido
         ,stg_pedidos.data_entrega
@@ -125,6 +127,10 @@ with
         ,id_pedido
         ,id_cliente
         ,id_produto
+
+        /*endereco*/
+        ,id_endereco_pagamento
+        ,id_endereco_entrega
         
         /*datas*/
         ,data_pedido
