@@ -16,8 +16,8 @@ with
             ,cast (customerid as integer) as id_cliente
             --, salespersonid
             --, territoryid
-            --, billtoaddressid
-            --, shiptoaddressid
+            ,cast(billtoaddressid as integer) as id_endereco_pagamento
+            ,cast(shiptoaddressid as integer) as id_endereco_entrega
             --, shipmethodid
             ,cast (creditcardid as integer) as id_cartao_de_credito
             --, creditcardapprovalcode
