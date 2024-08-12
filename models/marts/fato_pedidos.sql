@@ -68,7 +68,7 @@ with
         ,joined1_detalhe_pedidos_ofertas_speciais.id_produto
         ,stg_pedidos.data_pedido
         ,stg_pedidos.data_entrega
-        --,stg_pedidos.id_status
+        ,stg_pedidos.id_status
         ,stg_pedidos.eh_compra_online
         --,stg_pedidos.id_cartao_de_credito
         ,stg_pedidos.subtotal
@@ -138,6 +138,9 @@ with
         
         /*compra online*/
         ,eh_compra_online
+
+        /*compra online*/
+        ,id_status
 
         --,subtotal
         --taxas
