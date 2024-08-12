@@ -139,14 +139,12 @@ with
         /*compra online*/
         ,eh_compra_online
 
-<<<<<<< HEAD
+
         /*compra online*/
         ,id_status
 
         --,subtotal
-=======
-     
->>>>>>> b69402e5d105622cf60add205aec06daea2af3c9
+
         --taxas
         --frete
         --total
