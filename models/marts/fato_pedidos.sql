@@ -139,7 +139,7 @@ with
         /*compra online*/
         ,eh_compra_online
 
-        --,subtotal
+     
         --taxas
         --frete
         --total
@@ -152,6 +152,7 @@ with
         ,desconto_monetario
         ,frete_ponderado
         ,taxas_ponderadas
+        ,subtotal
 
 
         --desconto_unitario
